@@ -4,17 +4,19 @@ import './include/Bootstrap';
 import { NavComponent } from './components/nav/Nav.component';
 import { HomeComponent } from './components/home/Home.component';
 import { ClickerComponent } from './components/clicker/Clicker.component';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <HomeComponent />
-        My react application!!!
-        <HomeComponent />
-        <HomeComponent />
-        <ClickerComponent />
-      </div>
+      <BrowserRouter>
+        <div>
+          <NavComponent />
+
+          <Route path="/home" component={HomeComponent} />
+          <Route path="/clicker" component={ClickerComponent} />
+        </div>
+      </BrowserRouter>
     );
   }
 }
