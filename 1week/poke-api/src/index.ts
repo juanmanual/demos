@@ -31,9 +31,10 @@ app.use(session(sess));
 
 // allow cross origins
 app.use((req, resp, next) => {
+  console.log(req.get('host'));
   (process.env.MOVIE_API_STAGE === 'prod')
     ? resp.header('Access-Control-Allow-Origin', process.env.DEMO_APP_URL)
-    : resp.header('Access-Control-Allow-Origin', `http://localhost:5500`);
+    : resp.header('Access-Control-Allow-Origin', `${req.headers.origin}`);
   resp.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   resp.header('Access-Control-Allow-Credentials', 'true');
   next();
