@@ -1,5 +1,6 @@
 import React from 'react';
 import { RouteComponentProps } from 'react-router';
+import { pokeClient } from '../../axios/poke.client';
 
 interface ISignInState {
   credentials: {
@@ -43,6 +44,23 @@ export class SignInComponent extends React.Component<ISignInProps, ISignInState>
   }
 
   signIn = async (event) => {
+    event.preventDefault(); // prevent default form submission
+    try {
+      const res = await pokeClient.post('/auth/login', this.state.credentials);
+      console.log(res);
+      this.props.history.push('/home');
+    } catch (err) {
+      console.log(err);
+      this.setState({
+        errorFeedback: 'failed to sign in'
+      })
+    }
+
+
+  }
+
+  // sign in using fetch instead of axios
+  signInFetch = async (event) => {
     event.preventDefault(); // prevent default form submission
     const res = await fetch('http://localhost:3000/auth/login', {
       method: 'POST',
