@@ -6,7 +6,7 @@ import { HomeComponent } from './components/home/Home.component';
 import ClickerComponent from './components/clicker/Clicker.component';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { SignInComponent } from './components/sign-in/SignIn.component';
-import { ChuckNorrisComponent } from './components/chuck-norris/ChuckNorris.component';
+import ChuckNorrisComponent from './components/chuck-norris/ChuckNorris.container';
 import { FirstComponent } from './components/first/First.component';
 import { SecondComponent } from './components/second/Second.component';
 import { NestedComponent } from './components/nested/Nested.component';

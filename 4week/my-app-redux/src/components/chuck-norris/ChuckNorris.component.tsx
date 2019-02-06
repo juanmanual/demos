@@ -1,39 +1,23 @@
 import React from 'react';
+import { IChuckNorrisState } from '../../reducers';
 
-export class ChuckNorrisComponent extends React.Component<any, any> {
+interface IChuckNorrisProps {
+  clicks: number,
+  chuckNorris: IChuckNorrisState,
+  buyJoke: () => void
+}
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      joke: 'A snake bit chuck norris after 5 painful days the snake died',
-      test: 'test'
-    }
-  }
-
-  async componentDidMount() {
-    this.newJoke();
-  }
-
-   newJoke = async () => {
-    try {
-      const resp = await fetch('http://api.icndb.com/jokes/random?limitTo=[nerdy]');
-      const body = await resp.json();
-      this.setState({
-        joke: body.value.joke,
-      })
-    } catch (err) {
-      console.log(err);
-    }
-  }
+export class ChuckNorrisComponent extends React.Component<IChuckNorrisProps, any> {
 
   render() {
     return (
       <div>
         <div>
-          {this.state.test}
-          Joke: {this.state.joke}
+          Joke: {this.props.chuckNorris.joke}
         </div>
-        <button className="btn btn-primary" onClick={this.newJoke}>New Joke</button>
+        {
+          this.props.clicks >= 1000 && <button className="btn btn-primary" onClick={this.props.buyJoke}>Buy Joke</button>
+        }
       </div>
     )
   }
