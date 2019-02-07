@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'reactstrap/lib/Button';
 
-interface IClickerIncrementerProps {
+export interface IClickerIncrementerProps {
   clicks: number,
   incrementAmount: number,
   renderAt: number,

@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import { IState, IClickerState } from '../../reducers';
 import { increment } from '../../actions/clicker/clicker.actions';
 
-interface IProps {
+export interface ICLickerProps {
   clicker: IClickerState,
   increment: (amount: number) => void
 }
 
-export class ClickerComponent extends React.Component<IProps, any> {
+export class ClickerComponent extends React.Component<ICLickerProps, any> {
 
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ export class ClickerComponent extends React.Component<IProps, any> {
     // const {clicks} = this.props;
     const incrementers: any[] = [];
     for (let i = 100; i <= clicks; i+=100) {
-      incrementers.push(<ClickerIncrementersComponent {...{
+      incrementers.push(<ClickerIncrementersComponent key={'incrementer-' + i} {...{
         clicks,
         incrementAmount: i/10,
         renderAt: i,
