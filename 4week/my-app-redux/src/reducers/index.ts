@@ -7,7 +7,8 @@ export interface IClickerState {
 }
 
 export interface IChuckNorrisState {
-  joke: string
+  joke: string,
+  disableBuyJoke: boolean
 }
 
 export interface IState {

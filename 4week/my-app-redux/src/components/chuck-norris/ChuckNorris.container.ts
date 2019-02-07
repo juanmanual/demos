@@ -11,7 +11,7 @@ const mapStateToProps = (state: IState) => {
 }
 
 const mapDispatchToProps = {
-  buyJoke
+  buyJoke,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChuckNorrisComponent);

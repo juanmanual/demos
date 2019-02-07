@@ -16,7 +16,12 @@ export class ChuckNorrisComponent extends React.Component<IChuckNorrisProps, any
           Joke: {this.props.chuckNorris.joke}
         </div>
         {
-          this.props.clicks >= 1000 && <button className="btn btn-primary" onClick={this.props.buyJoke}>Buy Joke</button>
+          this.props.clicks >= 1000 && 
+            <button className="btn btn-primary" 
+              onClick={() => this.props.buyJoke}
+              disabled={this.props.chuckNorris.disableBuyJoke}>
+                Buy Joke
+            </button>
         }
       </div>
     )
