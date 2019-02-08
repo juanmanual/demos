@@ -3,7 +3,7 @@ phases:
   install: 
     commands:
       - echo Installing source NPM dependencies...
-      - cd 4week\my-app-redux && npm install
+      - cd 4week/my-app-redux && npm install
   build:
     commands:
       - echo Build started on `date`
